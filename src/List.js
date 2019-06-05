@@ -3,13 +3,18 @@ import Card from './Card'
 import './List.css';
 
 export default function List(props) {
+  console.log("Here are the List props")
+  console.log({props});
+
+  if(!props.cards) { return; }
+
   return (
     <section className='List'>
       <header className='List-header'>
         <h2>{props.header}</h2>
       </header>
       <div className='List-cards'>
-        {props.cards.map((card) =>
+        {props.cards && props.cards.map((card) =>
           <Card
             key={card.id}
             title={card.title}
